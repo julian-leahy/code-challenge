@@ -8,7 +8,7 @@
     height: 70%;
     padding: $m-pad;
   }
-  
+
   .output-group{
     height: 30%;
     display: flex;
@@ -20,4 +20,14 @@
     &:first-child{
       border-right: $separator;
     }
+  }
+
+  .mirror{
+    height: 100%;
+  }
+
+  .CodeMirror{
+    height: 100%;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
   }
