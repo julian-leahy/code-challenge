@@ -1,0 +1,17 @@
+@import './../partials/vars';
+
+.title{
+    background-color: $darker;
+    height: $title-h;
+    line-height: $title-h;
+    padding-left: $m-pad;
+    color: $bright;
+  }
+  
+  .output{
+    max-height: calc(100% - $title-h);
+    overflow-y: auto;
+  }
+  .output__inner{
+    padding: $m-pad;
+  }

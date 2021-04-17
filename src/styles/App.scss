@@ -5,56 +5,24 @@ header{
   display: flex;
   align-items: center;
   background-color: $darker;
-  a{
-    font-size: 1.8rem;
-    padding: $s-pad;
-  }
-  .btn{
-    font-size: 1.6rem;
-    padding: $s-pad;
-  }
-}
-
-.question{
-  height: 10%;
-  max-height: 10%;
-  border-top: $separator;
-  border-bottom: $separator;
-  padding: $m-pad;
-  overflow-y: auto;
-}
-
-.editor{
-  height: 60%;
-  padding: $m-pad;
-}
-
-.output-group{
-  height: 23%;
-  display: flex;
-  border-top: $separator;
-}
-
-.output-group > *{
-  width: 100%;
-  &:first-child{
-    border-right: $separator;
+  justify-content: flex-end;
+  nav{
+    a{
+      font-size: 1.8rem;
+      padding: $s-pad;
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 
-.title{
-  background-color: $darker;
-  height: $title-h;
-  line-height: $title-h;
-  padding-left: $m-pad;
-  color: $bright;
+main{
+  height: 93%;
 }
 
-.output{
-  max-height: calc(100% - $title-h);
-  overflow-y: auto;
+.challenge{
+  height: 100%;
 }
-.output__inner{
-  padding: $m-pad;
-}
+
+
 

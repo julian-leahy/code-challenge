@@ -1,0 +1,10 @@
+@import './../partials/vars';
+
+.question{
+    height: 10%;
+    max-height: 10%;
+    border-top: $separator;
+    border-bottom: $separator;
+    padding: $m-pad;
+    overflow-y: auto;
+  }

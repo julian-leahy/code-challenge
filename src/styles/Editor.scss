@@ -1,0 +1,23 @@
+@import './../partials/vars';
+
+.editor-wrap{
+    height: 90%;
+  }
+  
+  .editor{
+    height: 70%;
+    padding: $m-pad;
+  }
+  
+  .output-group{
+    height: 30%;
+    display: flex;
+    border-top: $separator;
+  }
+  
+  .output-group > *{
+    width: 100%;
+    &:first-child{
+      border-right: $separator;
+    }
+  }

@@ -1,43 +1,27 @@
 import './../styles/App.scss';
+import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom';
+import Challenge from './Challenge';
+import Admin from './Admin';
 
 function App() {
   return (
     <div className='app'>
-      <div className='container'>
-        <header>
-          <button className='btn'>Next</button>
-          <a>Home</a>
-          <a>Admin</a>
-        </header>
-        <div className='question'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facilis amet repudiandae corporis quaerat nostrum? Dolorum molestias culpa, ipsum officia quos quis soluta dolores nobis ex debitis quae, illum fuga!
+      <Router>
+        <div className='container'>
+          <header>
+            <nav>
+              <NavLink to='/' exact={true}>Home</NavLink>
+              <NavLink to='/admin'>Admin</NavLink>
+            </nav>
+          </header>
+          <main>
+            <Switch>
+              <Route path='/' component={Challenge} exact={true} />
+              <Route path='/admin' component={Admin} />
+            </Switch>
+          </main>
         </div>
-        <div className='editor'>
-          Editor
-        </div>
-        <div className='output-group'>
-          <div className='user-output'>
-            <div className='title'>
-              <h1>User output</h1>
-            </div>
-            <div className='output'>
-              <div className='output__inner'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis rerum necessitatibus itaque saepe esse eaque vero ipsa nemo eligendi!
-              </div>
-            </div>
-          </div>
-          <div className='expected-output'>
-            <div className='title'>
-              <h1>Expected output</h1>
-            </div>
-            <div className='output'>
-              <div className='output__inner'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis rerum necessitatibus itaque saepe esse eaque vero ipsa nemo eligendi! Unde ratione voluptates ad enim consectetur officia id labore ut ab!
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </Router>
     </div>
   );
 }
