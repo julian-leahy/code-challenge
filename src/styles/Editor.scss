@@ -1,33 +1,38 @@
-@import './../partials/vars';
+@import "./../partials/vars";
 
-.editor-wrap{
-    height: 90%;
-  }
-  
-  .editor{
-    height: 70%;
-    padding: $m-pad;
-  }
+.editor-wrap {
+  height: 90%;
+}
 
-  .output-group{
-    height: 30%;
-    display: flex;
-    border-top: $separator;
-  }
-  
-  .output-group > *{
-    width: 100%;
-    &:first-child{
-      border-right: $separator;
-    }
-  }
+.editor {
+  height: 70%;
+  padding: $m-pad;
+}
 
-  .mirror{
-    height: 100%;
-  }
+.btn-group {
+  position: absolute;
+  top: 0;
+}
 
-  .CodeMirror{
-    height: 100%;
-    font-size: 1.8rem;
-    line-height: 1.8rem;
+.output-group {
+  height: 30%;
+  display: flex;
+  border-top: $separator;
+}
+
+.output-group > * {
+  width: 100%;
+  &:first-child {
+    border-right: $separator;
   }
+}
+
+.mirror {
+  height: 100%;
+}
+
+.CodeMirror {
+  height: 100%;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}

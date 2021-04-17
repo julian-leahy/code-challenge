@@ -1,7 +1,7 @@
 import React from 'react';
 import './../styles/Output.scss';
 
-function Output() {
+function Output({ log }) {
     return (
 
         <div className='user-output'>
@@ -10,8 +10,8 @@ function Output() {
             </div>
             <div className='output'>
                 <div className='output__inner'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis rerum necessitatibus itaque saepe esse eaque vero ipsa nemo eligendi!
-          </div>
+                    {log}
+                </div>
             </div>
         </div>
 
