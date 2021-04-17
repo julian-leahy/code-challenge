@@ -1,28 +1,23 @@
-@import './../partials/vars';
+@import "./../partials/vars";
 
-header{
+header {
   height: 7%;
   display: flex;
   align-items: center;
   background-color: $darker;
   justify-content: flex-end;
-  nav{
-    a{
-      font-size: 1.8rem;
-      padding: $s-pad;
-      color: #fff;
-      text-decoration: none;
-    }
+  nav a {
+    font-size: 1.8rem;
+    padding: $s-pad;
+    color: #fff;
+    text-decoration: none;
   }
 }
 
-main{
+main {
   height: 93%;
 }
 
-.challenge{
+.challenge {
   height: 100%;
 }
-
-
-
