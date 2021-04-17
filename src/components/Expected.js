@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Expected() {
+function Expected({ expect }) {
     return (
         <div className='expected-output'>
             <div className='title'>
@@ -8,7 +8,8 @@ function Expected() {
             </div>
             <div className='output'>
                 <div className='output__inner'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis rerum necessitatibus itaque saepe esse eaque vero ipsa nemo eligendi! Unde ratione voluptates ad enim consectetur officia id labore ut ab!</div>
+                    {expect}
+                </div>
             </div>
         </div>
     )

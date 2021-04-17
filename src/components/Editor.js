@@ -79,7 +79,7 @@ function Editor() {
             </div>
             <div className='output-group'>
                 <Output log={output} />
-                <Expected />
+                <Expected expect='bears love beets' />
             </div>
         </div>
     )
