@@ -1,57 +1,60 @@
+@import './../partials/vars';
+
 header{
   height: 7%;
   display: flex;
   align-items: center;
+  background-color: $darker;
   a{
     font-size: 1.8rem;
-    padding: 10px;
+    padding: $s-pad;
   }
   .btn{
     font-size: 1.6rem;
-    padding: 8px;
+    padding: $s-pad;
   }
 }
 
 .question{
   height: 10%;
   max-height: 10%;
-  border-top: 3px solid #333545;
-  border-bottom: 3px solid #333545;
-  padding: 10px;
+  border-top: $separator;
+  border-bottom: $separator;
+  padding: $m-pad;
   overflow-y: auto;
 }
 
 .editor{
   height: 60%;
-  padding: 10px;
+  padding: $m-pad;
 }
 
 .output-group{
   height: 23%;
   display: flex;
-  border-top: 3px solid #333545;
+  border-top: $separator;
 }
 
 .output-group > *{
   width: 100%;
   &:first-child{
-    border-right: 3px solid #333545;
+    border-right: $separator;
   }
 }
 
 .title{
-  background-color: darken(#282a36, 3);
-  height: 40px;
-  line-height: 40px;
-  padding-left: 10px;
-  color: chartreuse;
+  background-color: $darker;
+  height: $title-h;
+  line-height: $title-h;
+  padding-left: $m-pad;
+  color: $bright;
 }
 
 .output{
-  max-height: calc(100% - 40px);
+  max-height: calc(100% - $title-h);
   overflow-y: auto;
 }
 .output__inner{
-  padding: 10px;
+  padding: $m-pad;
 }
 
