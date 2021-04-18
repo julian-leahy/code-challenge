@@ -1,14 +1,43 @@
 import React from 'react';
 import Editor from './Editor';
 import Question from './Question';
+import db from './../firebase.config';
 
-function Challenge() {
-    return (
-        <div className='challenge'>
-            <Question />
-            <Editor />
-        </div>
-    )
+class Challenge extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    componentDidMount() {
+        this.fetchQuestion(1)
+    }
+
+    fetchQuestion = async (n) => {
+        const response = db.collection('challenge').where('qnumber', '==', n);
+        const data = await response.get();
+        data.docs.forEach(item => {
+            this.setState({
+                type: item.data().type,
+                code: item.data().code,
+                question: item.data().question,
+                expected: item.data().expected,
+                solution: item.data().solution,
+                keywords: item.data().keywords
+            })
+        })
+    }
+
+    render() {
+        const { question, code, expected } = this.state;
+        return (
+            <div className='challenge'>
+                <Question question={question} />
+                <Editor code={code} expected={expected} />
+            </div>
+        )
+    }
 }
 
 export default Challenge;

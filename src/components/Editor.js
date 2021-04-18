@@ -1,23 +1,23 @@
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/theme/dracula.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import './../styles/Editor.scss';
 import Expected from './Expected';
 import Output from './Output';
 
-const dummy = `
-let quote = ['bears','love','beets']
-let string = quote.join(' ')
-console.log(string)`
 
-function Editor() {
+function Editor({ code, expected }) {
 
     let consoleValue = '', func
 
-    const [code, setCode] = useState(dummy);
+    const [value, setValue] = useState(code)
     const [output, setOutput] = useState('');
+
+    useEffect(() => {
+        setValue(code)
+    }, [code])
 
     const handleRunCode = () => {
         consoleValue = ''
@@ -41,7 +41,7 @@ function Editor() {
 
         try {
             // eslint-disable-next-line no-new-func
-            func = new Function(code)
+            func = new Function(value)
             func()
         } catch (error) {
             // catch code errors
@@ -55,7 +55,7 @@ function Editor() {
             <div className='editor'>
                 <CodeMirror
                     className='mirror'
-                    value={code}
+                    value={value}
                     autoCursor={false}
                     options={{
                         mode: 'javascript',
@@ -65,11 +65,11 @@ function Editor() {
                         // add code snippet for console.log
                         if (value.includes('cc')) {
                             const newValue = value.replace('cc', 'console.log(')
-                            setCode(newValue);
+                            setValue(newValue);
                             editor.focus();
                             editor.setCursor(editor.lineCount(), 0);
                         } else {
-                            setCode(value);
+                            setValue(value);
                         }
                     }}
                 />
@@ -79,7 +79,7 @@ function Editor() {
             </div>
             <div className='output-group'>
                 <Output log={output} />
-                <Expected expect='bears love beets' />
+                <Expected expect={expected} />
             </div>
         </div>
     )

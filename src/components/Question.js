@@ -1,10 +1,10 @@
 import React from 'react';
 import './../styles/Question.scss';
 
-function Question() {
+function Question({ question }) {
     return (
         <div className='question'>
-            Question 1
+            {question}
         </div>
     )
 }
