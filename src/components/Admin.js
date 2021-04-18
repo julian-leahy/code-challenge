@@ -1,5 +1,6 @@
 import React from 'react';
 import './../styles/Admin.scss';
+import db from './../firebase.config';
 
 class Admin extends React.Component {
 
@@ -12,14 +13,31 @@ class Admin extends React.Component {
             code: '',
             solution: '',
             keywords: '',
-            expected: ''
+            expected: '',
+            qnumber: undefined,
+            createdAt: Date.now()
         }
+    }
+
+    componentDidMount() {
+        this.totalQuestion()
+    }
+
+    totalQuestion = async () => {
+        const response = db.collection('challenge');
+        const data = await response.get();
+        this.setState({ qnumber: data.size + 1 })
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state); // TODO add to db
-        this.reset();
+        if (!this.state.qnumber) {
+            alert('error: qnumber not defined!!')
+            return;
+        } else {
+            db.collection('challenge').add(this.state);
+            this.reset();
+        }
 
     }
 
