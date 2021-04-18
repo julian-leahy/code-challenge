@@ -71,7 +71,7 @@ class Admin extends React.Component {
                                     <label>Start Code</label>
                                     <textarea name="code" value={code} cols="30" rows="5" onChange={this.handleChange} required />
                                     <label>Expected Output</label>
-                                    <textarea name="expected" value={code} cols="30" rows="5" onChange={this.handleChange} required />
+                                    <textarea name="expected" value={expected} cols="30" rows="5" onChange={this.handleChange} required />
                                     <label>Solution</label>
                                     <textarea name="solution" value={solution} cols="30" rows="5" onChange={this.handleChange} required />
                                 </>
