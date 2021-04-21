@@ -11,7 +11,23 @@ class Challenge extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchQuestion(1)
+        this.totalQuestion();
+    }
+
+    totalQuestion = async () => {
+        const response = db.collection('challenge');
+        const data = await response.get();
+
+        // generarate and shuffle array containing 1 .. N representing question numbers
+        const array = [...Array(data.size).keys()].map(x => ++x);
+        const shuffledArray = array.sort(() => 0.5 - Math.random());
+
+        // get first question
+        const initQuestion = shuffledArray.pop();
+
+        this.setState({ questionNumbers: shuffledArray });
+        this.fetchQuestion(initQuestion);
+
     }
 
     fetchQuestion = async (n) => {
@@ -28,6 +44,8 @@ class Challenge extends React.Component {
             })
         })
     }
+
+
 
     render() {
         const { question, code, expected } = this.state;
