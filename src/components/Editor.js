@@ -8,7 +8,7 @@ import Expected from './Expected';
 import Output from './Output';
 
 
-function Editor({ code, expected, next }) {
+function Editor({ code, expected, next, solution }) {
 
     let consoleValue = '', func
 
@@ -54,6 +54,10 @@ function Editor({ code, expected, next }) {
         setValue(code);
     }
 
+    const handleShowSolution = () => {
+        setValue(solution);
+    }
+
     return (
         <div className='editor-wrap'>
             <div className='editor'>
@@ -81,6 +85,7 @@ function Editor({ code, expected, next }) {
                     <button className='btn run' onClick={handleRunCode}>Run</button>
                     <button className='btn next' onClick={next}>Next</button>
                     <button className='btn reset' onClick={handleResetCode}>Reset</button>
+                    <button className='btn solution' onClick={handleShowSolution}>Solution</button>
                 </div>
             </div>
             <div className='output-group'>

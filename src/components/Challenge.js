@@ -56,11 +56,11 @@ class Challenge extends React.Component {
 
 
     render() {
-        const { question, code, expected } = this.state;
+        const { question, code, expected, solution } = this.state;
         return (
             <div className='challenge'>
                 <Question question={question} />
-                <Editor code={code} expected={expected} next={this.nextQuestion} />
+                <Editor code={code} expected={expected} next={this.nextQuestion} solution={solution} />
             </div>
         )
     }
