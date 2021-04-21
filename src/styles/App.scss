@@ -7,10 +7,17 @@ header {
   background-color: $darker;
   justify-content: flex-end;
   nav a {
+    transition: all 500ms;
     font-size: 1.8rem;
     padding: $s-pad;
-    color: #fff;
+    color: #666;
     text-decoration: none;
+    &.active {
+      color: #fff;
+    }
+    &:hover {
+      color: $bright;
+    }
   }
 }
 
