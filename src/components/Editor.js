@@ -50,6 +50,10 @@ function Editor({ code, expected, next }) {
 
     }
 
+    const handleResetCode = () => {
+        setValue(code);
+    }
+
     return (
         <div className='editor-wrap'>
             <div className='editor'>
@@ -76,6 +80,7 @@ function Editor({ code, expected, next }) {
                 <div className='btn-group'>
                     <button className='btn run' onClick={handleRunCode}>Run</button>
                     <button className='btn next' onClick={next}>Next</button>
+                    <button className='btn reset' onClick={handleResetCode}>Reset</button>
                 </div>
             </div>
             <div className='output-group'>
