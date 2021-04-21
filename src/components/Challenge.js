@@ -30,6 +30,14 @@ class Challenge extends React.Component {
 
     }
 
+    // TODO check end of questions
+    nextQuestion = () => {
+        const currentQuestions = this.state.questionNumbers;
+        const next = currentQuestions.pop();
+        this.setState({ questionNumbers: currentQuestions });
+        this.fetchQuestion(next);
+    }
+
     fetchQuestion = async (n) => {
         const response = db.collection('challenge').where('qnumber', '==', n);
         const data = await response.get();
@@ -52,7 +60,7 @@ class Challenge extends React.Component {
         return (
             <div className='challenge'>
                 <Question question={question} />
-                <Editor code={code} expected={expected} />
+                <Editor code={code} expected={expected} next={this.nextQuestion} />
             </div>
         )
     }

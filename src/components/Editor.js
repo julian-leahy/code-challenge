@@ -8,7 +8,7 @@ import Expected from './Expected';
 import Output from './Output';
 
 
-function Editor({ code, expected }) {
+function Editor({ code, expected, next }) {
 
     let consoleValue = '', func
 
@@ -75,6 +75,7 @@ function Editor({ code, expected }) {
                 />
                 <div className='btn-group'>
                     <button className='btn run' onClick={handleRunCode}>Run</button>
+                    <button className='btn next' onClick={next}>Next</button>
                 </div>
             </div>
             <div className='output-group'>
