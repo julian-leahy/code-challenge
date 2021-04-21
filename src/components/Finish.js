@@ -1,11 +1,12 @@
 import React from 'react';
 import './../styles/Finish.scss';
 
-function Finish() {
+function Finish({ again }) {
     return (
         <div className='finish'>
             <div className='finish-text'>
-                Challenge Completed
+                <p>Challenge Completed</p>
+                <button className='again btn' onClick={again}>Try Again</button>
             </div>
         </div>
     )

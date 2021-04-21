@@ -64,6 +64,11 @@ class Challenge extends React.Component {
         })
     }
 
+    playAgain = () => {
+        this.setState({ preload: true, restart: false });
+        this.totalQuestion();
+    }
+
 
 
     render() {
@@ -74,7 +79,7 @@ class Challenge extends React.Component {
                 <Question question={question} />
                 <Editor code={code} expected={expected} next={this.nextQuestion} solution={solution} />
                 {
-                    this.state.restart ? <Finish /> : null
+                    this.state.restart ? <Finish again={this.playAgain} /> : null
                 }
                 <CSSTransition
                     nodeRef={nodeRef}
