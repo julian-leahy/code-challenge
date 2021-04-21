@@ -83,9 +83,9 @@ function Editor({ code, expected, next, solution }) {
                 />
                 <div className='btn-group'>
                     <button className='btn run' onClick={handleRunCode}>Run</button>
-                    <button className='btn next' onClick={next}>Next</button>
                     <button className='btn reset' onClick={handleResetCode}>Reset</button>
                     <button className='btn solution' onClick={handleShowSolution}>Solution</button>
+                    <button className='btn next' onClick={next}>Next</button>
                 </div>
             </div>
             <div className='output-group'>
