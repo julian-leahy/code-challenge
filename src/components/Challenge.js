@@ -3,13 +3,15 @@ import Editor from './Editor';
 import Question from './Question';
 import db from './../firebase.config';
 import Finish from './Finish';
+import Preload from './Preload';
 
 class Challenge extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            restart: false
+            restart: false,
+            preload: true
         }
     }
 
@@ -71,6 +73,9 @@ class Challenge extends React.Component {
                 <Editor code={code} expected={expected} next={this.nextQuestion} solution={solution} />
                 {
                     this.state.restart ? <Finish /> : null
+                }
+                {
+                    this.state.preload && <Preload />
                 }
 
             </div>
