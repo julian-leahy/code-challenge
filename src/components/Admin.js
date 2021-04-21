@@ -46,6 +46,7 @@ class Admin extends React.Component {
             question: '',
             code: '',
             solution: '',
+            expected: '',
             keywords: ''
         })
     }
