@@ -4,6 +4,7 @@ import Question from './Question';
 import db from './../firebase.config';
 import Finish from './Finish';
 import Preload from './Preload';
+import { CSSTransition } from 'react-transition-group';
 
 class Challenge extends React.Component {
 
@@ -30,7 +31,7 @@ class Challenge extends React.Component {
         // get first question
         const initQuestion = shuffledArray.pop();
 
-        this.setState({ questionNumbers: shuffledArray });
+        this.setState({ questionNumbers: shuffledArray, preload: false });
         this.fetchQuestion(initQuestion);
 
     }
@@ -67,6 +68,7 @@ class Challenge extends React.Component {
 
     render() {
         const { question, code, expected, solution } = this.state;
+        const nodeRef = React.createRef(null);
         return (
             <div className='challenge'>
                 <Question question={question} />
@@ -74,9 +76,19 @@ class Challenge extends React.Component {
                 {
                     this.state.restart ? <Finish /> : null
                 }
-                {
-                    this.state.preload && <Preload />
-                }
+                <CSSTransition
+                    nodeRef={nodeRef}
+                    in={this.state.preload}
+                    timeout={1000}
+                    classNames={'loaded'}
+                >
+                    <div ref={nodeRef}>
+                        <Preload />
+                    </div>
+
+
+                </CSSTransition>
+
 
             </div>
         )
