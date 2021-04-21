@@ -1,3 +1,12 @@
+$circle-one: #7fff00;
+$circle-two: #ff79c6;
+$circle-three: #f9c922;
+
+$loader-size: 150px;
+$loader-background: #282a36;
+
+$loader-z: 1000;
+
 .loaded-exit-done .loader-wrapper {
     visibility: hidden;
     transform: translateY(-100%);
@@ -15,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: $loader-z;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +32,12 @@
 
 .loader {
     position: relative;
-    z-index: 1001;
-    width: 150px;
-    height: 150px;
+    z-index: $loader-z + 1;
+    width: $loader-size;
+    height: $loader-size;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #3498db;
+    border-top-color: $circle-one;
     animation: spin linear 2s infinite;
 }
 
@@ -41,7 +50,7 @@
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #e74c3c;
+    border-top-color: $circle-two;
     animation: spin 3s linear infinite;
 }
 
@@ -54,7 +63,7 @@
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #f9c922;
+    border-top-color: $circle-three;
     animation: spin 1.5s linear infinite;
 }
 
@@ -72,7 +81,7 @@
     top: 0;
     width: 51%;
     height: 100%;
-    background: #000000;
+    background: $loader-background;
     z-index: 1000;
 }
 
