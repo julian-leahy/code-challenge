@@ -60,20 +60,21 @@ class Admin extends React.Component {
         this.setState({ [name]: value });
     }
 
+    // TODO add keyword selection
     render() {
         const { isKeyword, question, keywords, code, expected, solution } = this.state;
         return (
             <div className='admin'>
                 <form onSubmit={this.handleSubmit} className='form-admin'>
 
-                    <div className='radio-group'>
+                    {/* <div className='radio-group'>
                         <div>
                             <input type="radio" value="code" name="type" checked={!isKeyword} onChange={this.onChangeValue} /><label>Code (Complete the code challenge)</label>
                         </div>
                         <div>
                             <input type="radio" value="keywords" name="type" checked={isKeyword} onChange={this.onChangeValue} /><label>Keywords (Written answers that should contain key points)</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='input-group'>
                         <label>Question</label>
