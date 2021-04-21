@@ -37,6 +37,7 @@ h1 {
     background-color: cadetblue;
     color: #fff;
     cursor: pointer;
+    text-transform: capitalize;
     &:hover {
         color: $bright;
     }
