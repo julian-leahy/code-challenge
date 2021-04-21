@@ -2,12 +2,15 @@ import React from 'react';
 import Editor from './Editor';
 import Question from './Question';
 import db from './../firebase.config';
+import Finish from './Finish';
 
 class Challenge extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            restart: false
+        }
     }
 
     componentDidMount() {
@@ -33,9 +36,14 @@ class Challenge extends React.Component {
     // TODO check end of questions
     nextQuestion = () => {
         const currentQuestions = this.state.questionNumbers;
-        const next = currentQuestions.pop();
-        this.setState({ questionNumbers: currentQuestions });
-        this.fetchQuestion(next);
+        if (currentQuestions.length === 0) {
+            this.setState({ restart: true })
+
+        } else {
+            const next = currentQuestions.pop();
+            this.setState({ questionNumbers: currentQuestions });
+            this.fetchQuestion(next);
+        }
     }
 
     fetchQuestion = async (n) => {
@@ -61,6 +69,10 @@ class Challenge extends React.Component {
             <div className='challenge'>
                 <Question question={question} />
                 <Editor code={code} expected={expected} next={this.nextQuestion} solution={solution} />
+                {
+                    this.state.restart ? <Finish /> : null
+                }
+
             </div>
         )
     }
