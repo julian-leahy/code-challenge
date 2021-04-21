@@ -29,6 +29,7 @@ h1 {
 }
 
 .btn {
+    transition: color 500ms;
     font-size: 1.6rem;
     padding: $s-pad;
     margin-right: 5px;
@@ -36,4 +37,7 @@ h1 {
     background-color: cadetblue;
     color: #fff;
     cursor: pointer;
+    &:hover {
+        color: $bright;
+    }
 }
