@@ -11,7 +11,11 @@
 
 .btn-group {
   position: absolute;
-  top: 0;
+  top: 8px;
+  .run {
+    background-color: $bright;
+    color: #000;
+  }
 }
 
 .output-group {
@@ -34,5 +38,5 @@
 .CodeMirror {
   height: 100%;
   font-size: 1.8rem;
-  line-height: 1.8rem;
+  line-height: 2.3rem;
 }
